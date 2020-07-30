@@ -13,4 +13,5 @@ for (var i = 0; i < shopping.length; i++) {
 }
 
 // loop over an array
+// loops through properties
 // shopping.forEach()
