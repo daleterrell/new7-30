@@ -19,3 +19,24 @@ for (var i = 0; i < shopping.length; i++) {
 shopping.forEach(function (item, index, array) {
     console.log(item, index);
 }
+
+// Arrow function expression
+// compact alternative to a regular function expression
+shopping.forEach(function (item, index, array) {
+    console.log(item, index, array)
+)}
+    shopping.forEach((item, index, array)) => console.log('other stuff')
+
+// find an item
+// return value of first item in array that matches
+shopping.find(item => item === bread)
+console.log('find')
+
+
+
+
+
+
+
+
+
