@@ -1,0 +1,15 @@
+public class Trips
+    public static void main(String[] args) {
+        // tells the user what the program does
+        System.out.println("This program will help you define a roadtrip.");
+        public class Trip {
+
+        
+        }   
+        public void type() {
+            
+        } 
+    
+    
+    
+    }
