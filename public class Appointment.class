@@ -4,7 +4,7 @@ public class Trips
         System.out.println("This program will help you define a roadtrip.");
         public class Trip {
 
-        
+        ...............
         }   
         public void type() {
             
