@@ -1,7 +1,7 @@
 package org.aim.gameshelf.publisher;
 
 import org.aim.gameshelf.title;
-import org.aim.gameshelf.designer;
+import org.aim.gameshelf.publisher;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -20,24 +20,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/designers")
-public class DesignerController {
+@RequestMapping(path = "/api/publishers")
+public class PublisherController {
 
     @Autowired
-    private DesignerRepository designerRepository;
+    private PublisherRepository publisherRepository;
 
     @GetMapping(path = "")
-    public Iterable<Designer> getAllDesigners() {
-        return designerRepository.findAll();
+    public Iterable<Publisher> getAllPublishers() {
+        return publisherRepository.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    public Designer getDesigner(@PathVariable(value = "id") Integer id, HttpServletResponse response) {
-        Optional<Designer> designer = designerRepository.findById(id);
+    public Publisher getPublisher(@PathVariable(value = "id") Integer id, HttpServletResponse response) {
+        Optional<Publisher> publisher = publisherRepository.findById(id);
 
         try {
 
-            return designer.get();
+            return publisher.get();
 
         } catch (NoSuchElementException nsee) {
             nsee.printStackTrace();
@@ -48,27 +48,27 @@ public class DesignerController {
     }
 
     @PostMapping(path = "/")
-    public String createDesigner(@RequestBody Designer designer) {
-        designerRepository.save(designerr);
+    public String createPublisher(@RequestBody Publisher publisher) {
+        publisherRepository.save(publisherr);
         return "Saved";
     }
 
     @PutMapping(path = "/{id}")
-    public String updateDesigner(@PathVariable(value = "id") Integer id, @RequestBody Designer designerDetails) {
-        Optional<Designer> optionalDesigner = designerRepository.findById(id);
-        Designer designer = optionalDesigner.get();
+    public String updatePublisher(@PathVariable(value = "id") Integer id, @RequestBody Publisher publisherDetails) {
+        Optional<Pub> optionalPublisher = publisherRepository.findById(id);
+        Publisher publisher = optionalPublisher.get();
 
-        designer.setFirstName(designerDetails.getFirstName());
-        designer.setLastName(designerDetails.getLastName());
+        publisher.setFirstName(publisherDetails.getFirstName());
+        publisher.setLastName(publisherDetails.getLastName());
 
-        designerRepository.save(designer);
+        publisherRepository.save(publisher);
         return "Updated";
 
     }
 
     @DeleteMapping(path = "/{id}")
-    public String deleteDesigner(@PathVariable(value = "id") Integer id) {
-        designerRepository.deleteById(id);
+    public String deletePublisher(@PathVariable(value = "id") Integer id) {
+        publisherRepository.deleteById(id);
         return "Deleted";
     }
 

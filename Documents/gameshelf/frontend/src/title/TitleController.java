@@ -1,7 +1,3 @@
-package org.aim.gameshelf.title;
-
-import org.aim.gameshelf.publisher;
-import org.aim.gameshelf.title;
 
 import java.util.Optional;
 
@@ -14,29 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/titleshelf")
-public class TitleController {
+@RequestMapping(path = "/api/gameshelf")
+public class GameController {
 
     @Autowired
-    private MovieRepository titleRepository;
+    private MovieRepository gameRepository;
 
     @GetMapping(path = "")
-    public Iterable<Movie> getAllTitles() {
-        return titleRepository.findAll();
+    public Iterable<Movie> getAllGames() {
+        return gameRepository.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    public Title getTitle(@PathVariable(value = "id") Integer id) {
-        Optional<Title> title = titleRepository.findById(id);
-        return title.get();
+    public Game getGame(@PathVariable(value = "id") Integer id) {
+        Optional<Game> game = gameRepository.findById(id);
+        return game.get();
     }
 
     @PostMapping(path = "/")
-    public Title createTitle(@RequestBody Title title) {
-        return titleRepository.save(title);
+    public Game createGame(@RequestBody Game game) {
+        return gameRepository.save(game);
     }
 
-
-
-    ...
 }
